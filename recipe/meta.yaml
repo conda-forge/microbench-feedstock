@@ -1,5 +1,5 @@
 {% set name = "microbench" %}
-{% set version = "0.9.1" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/alubbock/microbench/archive/v{{ version }}.tar.gz
-  sha256: fba16c30e5b49a9f807950f8243243897af3c7f5ce0bec9dd45391b503aa35f8
+  sha256: 5d2d52550114f93bcb4f86014cc44e69e6e88e70d1eb17ca92565c8a09d3b317
 
 build:
   noarch: python
