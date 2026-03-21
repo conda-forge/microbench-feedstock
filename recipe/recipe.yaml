@@ -1,5 +1,5 @@
 context:
-  version: "1.0.0"
+  version: "2.0.0"
   python_min: "3.10"
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/m/microbench/microbench-${{ version }}.tar.gz
-  sha256: 5c8d254cdb65717b46a458163daddc6aef2d8abfa2394733838cd5c4eeb10632
+  sha256: ec171d40417c6a05363ee5987194f49bf17d26f014f53e608f16eaea588701d9
 
 build:
   script: ${{ PYTHON }} -m pip install . --no-deps --no-build-isolation
@@ -31,11 +31,13 @@ tests:
       python_version: ${{ python_min }}.*
   - script:
       - pip check
-      - pytest microbench/tests/
+      - python -m microbench --help
+      - pytest tests/
     requirements:
       run:
         - pip
         - pytest
+        - pytest-asyncio
         - pytest-cov
         - pandas
         - numpy
