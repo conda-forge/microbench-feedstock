@@ -1,5 +1,5 @@
 context:
-  version: "1.0.0"
+  version: "1.1.0"
   python_min: "3.10"
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/m/microbench/microbench-${{ version }}.tar.gz
-  sha256: 5c8d254cdb65717b46a458163daddc6aef2d8abfa2394733838cd5c4eeb10632
+  sha256: d9acbeaa657720815e17f1480d709f389394de7e9d03203a979e9bd45c477365
 
 build:
   script: ${{ PYTHON }} -m pip install . --no-deps --no-build-isolation
