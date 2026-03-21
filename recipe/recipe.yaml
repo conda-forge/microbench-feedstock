@@ -27,6 +27,7 @@ tests:
   - python:
       imports:
         - microbench
+      python_version: ${{ python_min }}.*
   - script:
       - pip check
       - pytest microbench/tests/
@@ -37,6 +38,7 @@ tests:
         - pandas
         - line_profiler
         - psutil
+        - python ${{ python_min }}.*
     files:
       source:
         - .
