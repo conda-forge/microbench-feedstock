@@ -1,0 +1,52 @@
+context:
+  version: "1.0.0"
+  python_min: "3.10"
+
+package:
+  name: microbench
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/m/microbench/microbench-${{ version }}.tar.gz
+  sha256: 5c8d254cdb65717b46a458163daddc6aef2d8abfa2394733838cd5c4eeb10632
+
+build:
+  script: ${{ PYTHON }} -m pip install . --no-deps --no-build-isolation
+  noarch: python
+  number: 0
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+
+tests:
+  - python:
+      imports:
+        - microbench
+  - script:
+      - pip check
+      - pytest microbench/tests/
+    requirements:
+      run:
+        - pip
+        - pytest
+        - pandas
+        - line_profiler
+        - psutil
+    files:
+      source:
+        - .
+
+about:
+  homepage: https://github.com/alubbock/microbench
+  summary: Micro-benchmarking framework. Extensible, with distributed/cluster support.
+  license: MIT
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - julian-belina
