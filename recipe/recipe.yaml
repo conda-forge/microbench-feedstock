@@ -19,7 +19,8 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - setuptools
+    - setuptools >=64
+    - setuptools-scm >=8
   run:
     - python >=${{ python_min }}
 
@@ -35,7 +36,9 @@ tests:
       run:
         - pip
         - pytest
+        - pytest-cov
         - pandas
+        - numpy
         - line_profiler
         - psutil
         - python ${{ python_min }}.*
